@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "projects": {
+    "api": "apps/api",
+    "api-interfaces": "libs/api-interfaces",
+    "let-it-roll-client": "apps/let-it-roll-client",
+    "let-it-roll-client-e2e": "apps/let-it-roll-client-e2e"
+  }
+}

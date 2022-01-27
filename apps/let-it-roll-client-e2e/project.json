@@ -1,0 +1,28 @@
+{
+  "root": "apps/let-it-roll-client-e2e",
+  "sourceRoot": "apps/let-it-roll-client-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/let-it-roll-client-e2e/cypress.json",
+        "devServerTarget": "let-it-roll-client:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "let-it-roll-client:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/let-it-roll-client-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["let-it-roll-client"]
+}
