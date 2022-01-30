@@ -1,0 +1,20 @@
+
+@use '@angular/material' as mat;
+
+@import './variables';
+
+@include mat.core();
+
+@include mat.core-theme($app-theme); //
+@include mat.button-theme($app-theme); //
+@include mat.icon-theme($app-theme); //
+@include mat.form-field-theme($app-theme); //
+@include mat.input-theme($app-theme); //
+@include mat.bottom-sheet-theme($app-theme);
+@include mat.slider-theme($app-theme);
+@include mat.card-theme($app-theme);
+@include mat.chips-theme($app-theme);
+@include mat.badge-theme($app-theme);
+@include mat.divider-theme($app-theme);
+@include mat.menu-theme($app-theme);
+

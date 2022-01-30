@@ -6,7 +6,9 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/let-it-roll-client",
         "index": "apps/let-it-roll-client/src/index.html",
@@ -18,7 +20,11 @@
           "apps/let-it-roll-client/src/favicon.ico",
           "apps/let-it-roll-client/src/assets"
         ],
-        "styles": ["apps/let-it-roll-client/src/styles.scss"],
+        "styles": [
+          "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
+          "apps/let-it-roll-client/src/styles/styles.scss",
+          "apps/let-it-roll-client/src/styles/theme.scss"
+        ],
         "scripts": []
       },
       "configurations": {
@@ -86,7 +92,9 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/let-it-roll-client"],
+      "outputs": [
+        "coverage/apps/let-it-roll-client"
+      ],
       "options": {
         "jestConfig": "apps/let-it-roll-client/jest.config.js",
         "passWithNoTests": true

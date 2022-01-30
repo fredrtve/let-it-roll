@@ -15,7 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@let-it-roll/api-interfaces": ["libs/api-interfaces/src/index.ts"]
+      "@let-it-roll/let-it-roll-shared": [
+        "libs/let-it-roll-shared/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

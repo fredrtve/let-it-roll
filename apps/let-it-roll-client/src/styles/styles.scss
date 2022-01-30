@@ -1,0 +1,13 @@
+@use '@angular/material' as mat;
+@import './variables';
+@import 'animate.css';
+
+html:root{
+  --primary-color: #{mat.get-color-from-palette($app-primary)};
+  --primary-contrast: #{mat.get-color-from-palette($app-primary, default-contrast)};
+  --accent-color: #{mat.get-color-from-palette($app-accent)};
+  --accent-contrast: #{mat.get-color-from-palette($app-accent, default-contrast)};
+}
+
+html, body { height: 100%; background: whitesmoke; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; overflow: hidden }

@@ -1,9 +1,8 @@
 {
   "version": 2,
   "projects": {
-    "api": "apps/api",
-    "api-interfaces": "libs/api-interfaces",
+    "let-it-roll-shared": "libs/let-it-roll-shared",
     "let-it-roll-client": "apps/let-it-roll-client",
-    "let-it-roll-client-e2e": "apps/let-it-roll-client-e2e"
+    "let-it-roll-server": "apps/let-it-roll-server"
   }
 }

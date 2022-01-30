@@ -1,0 +1,32 @@
+<div class="players-container">
+    <div class="players-title mat-body-2">Players: </div>
+    <mat-chip-list>
+        <ng-container *ngFor="let player of players" >
+            <mat-chip *ngIf="player.id !== ownerId; else ownerChip" 
+                (click)="setSelectedPlayer(player.id)"
+                [matMenuTriggerFor]="menu">
+                {{ player.nickname }}
+            </mat-chip>
+
+            <ng-template #ownerChip>
+                <mat-chip selected="true" color="primary"> 
+                    <mat-icon style="margin-right: 8px">grade</mat-icon>{{ player.nickname }}
+                </mat-chip>
+            </ng-template>
+        </ng-container>
+   
+    </mat-chip-list>
+</div>
+
+<mat-menu #menu="matMenu" >
+    <button mat-menu-item *ngIf="playerId === ownerId" 
+        (click)="promoteSelectedPlayer()">
+      <mat-icon>grade</mat-icon>
+      <span>Make owner</span>
+    </button>
+    <button mat-menu-item *ngIf="playerId === ownerId" 
+        (click)="kickSelectedPlayer()">
+      <mat-icon>dangerous</mat-icon>
+      <span>Kick</span>
+    </button>
+</mat-menu>

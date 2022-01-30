@@ -1,0 +1,62 @@
+{
+  "root": "apps/let-it-roll-server",
+  "sourceRoot": "apps/let-it-roll-server/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:build",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "options": {
+        "outputPath": "dist/apps/let-it-roll-server",
+        "main": "apps/let-it-roll-server/src/main.ts",
+        "tsConfig": "apps/let-it-roll-server/tsconfig.app.json",
+        "assets": [
+          "apps/let-it-roll-server/src/assets"
+        ]
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false,
+          "fileReplacements": [
+            {
+              "replace": "apps/let-it-roll-server/src/environments/environment.ts",
+              "with": "apps/let-it-roll-server/src/environments/environment.prod.ts"
+            }
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/node:execute",
+      "options": {
+        "buildTarget": "let-it-roll-server:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": [
+        "{options.outputFile}"
+      ],
+      "options": {
+        "lintFilePatterns": [
+          "apps/let-it-roll-server/**/*.ts"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": [
+        "coverage/apps/let-it-roll-server"
+      ],
+      "options": {
+        "jestConfig": "apps/let-it-roll-server/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

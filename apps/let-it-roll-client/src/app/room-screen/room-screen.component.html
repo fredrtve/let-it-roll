@@ -1,0 +1,33 @@
+<ng-container *ngIf="vm$ | async; let vm">
+
+    <div class="header-container">
+        <button mat-button color="warn" (click)="leaveRoom()"><mat-icon>close</mat-icon> Leave </button>
+        <button mat-raised-button class="roll-button" color="primary" *ngIf="vm.playerId === vm.ownerId" (click)="rollChampions()">
+            <mat-icon>casino</mat-icon> LA DET RULLE
+        </button>
+        <div class="join-link mat-body-2">Invite link: {{ vm.roomId | joinLink }}</div>
+        <button mat-icon-button [cdkCopyToClipboard]="vm.roomId | joinLink"><mat-icon>content_copy</mat-icon></button>
+    </div>
+    
+    <let-it-roll-player-list 
+        [players]="vm.players"
+        [playerId]="vm.playerId"
+        [ownerId]="vm.ownerId"
+        (playerPromoted)="assignOwner($event)"
+        (playerKicked)="kickPlayer($event)"
+    >
+    </let-it-roll-player-list>
+    
+    <mat-divider></mat-divider>
+    
+    <div class="champion-card-container">
+        <let-it-roll-champion-card
+            *ngFor="let player of vm.players; trackBy: trackByPlayer"
+            [player]="player"
+            [pick]="vm.picksMap[player.id]"
+            [numOfRerolls]="player.id === vm.playerId ? vm.rerolls : undefined"
+            (reroll)="rollChampion()">
+        </let-it-roll-champion-card>
+    </div>
+
+</ng-container>

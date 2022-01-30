@@ -1,0 +1,16 @@
+:host{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+    .title{
+        color: var(--primary-color)
+    }
+
+    .enter-button {
+        width: 225px;
+        height: 46px;
+    }
+}

@@ -1,0 +1,16 @@
+<div class="mat-display-4 title">La det rulle</div>
+
+<div *ngIf="roomId" class="mat-title">Joining room {{roomId}}</div>
+
+<mat-form-field appearance="fill">
+    <mat-label>Enter a nickname</mat-label>
+    <input matInput #nickname placeholder="Placeholder">
+    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+</mat-form-field>
+
+<button mat-raised-button color="primary" class="enter-button"
+    [disabled]="!nickname.value || nickname.value.length === 0"
+    (click)="enterRoom(nickname.value)">
+    {{ roomId ? 'Join room' : 'Create room' }}
+</button>
+

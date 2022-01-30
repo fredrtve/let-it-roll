@@ -1,0 +1,27 @@
+<mat-card [@cardAnimation]="pick ? 'visible' : 'hidden'" class="champion-card">
+
+    <ng-container *ngIf="pick && player">
+
+        <mat-card-header>
+            <mat-card-title>{{ player.nickname }}</mat-card-title>
+            <mat-card-subtitle>{{ pick.class }} {{ pick.championId | championName }} {{ pick.lane }}</mat-card-subtitle>
+        </mat-card-header>
+    
+        <img mat-card-image [src]="pick.championId | championImage" alt="Photo of champion">
+    
+        <mat-card-actions>
+            <button class="mat-headline" mat-button 
+                *ngIf="numOfRerolls !== undefined" 
+                [disabled]="numOfRerolls === 0"
+                (click)="rerollChampion()">
+                <mat-icon>casino</mat-icon>
+                Reroll ({{ numOfRerolls }})
+            </button>
+            
+        </mat-card-actions>
+    
+    </ng-container>
+
+
+
+</mat-card>
